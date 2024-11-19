@@ -1,0 +1,149 @@
+body {
+    background-color: #f7f1a9;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #f4f5f7 0%, #ffffff 100%);
+    min-height: 100vh;
+}
+
+header {
+    text-align: center;
+}
+
+h1 {
+    margin-top: 10px;
+    font-weight: 800;
+    font-size: 2em;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+    color: #2c3e50;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.tabs-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 27px;
+    margin-top: 20px;
+    position: relative;
+}
+
+.tabs-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 39px;
+    padding: -5px 10px;
+}
+
+.side-column {
+    margin-top: 118px;
+}
+
+.tabs-container:first-child {
+    margin-right: 10px;
+}
+
+.tabs-container:last-child {
+    margin-left: 10px;
+}
+
+.tab {
+    background-color: #ffffff;
+    padding: 5px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    width: 110px;
+    height: 70px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.tab::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.6),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.tab:hover {
+    background-color: #ffffff;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-color: #02131f;
+    color: #02131f;
+}
+
+.tab:hover::before {
+    left: 100%;
+}
+
+.tab:active {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.tabs-container:first-child,
+.tabs-container:last-child {
+    margin-top: 160px;
+}
+
+/* Add animation for initial load */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tab {
+    animation: fadeInUp 0.6s ease-out backwards;
+}
+
+/* Stagger the animations for each tab */
+.tabs-container:nth-child(1) .tab { animation-delay: 0.1s; }
+.tabs-container:nth-child(2) .tab { animation-delay: 0.2s; }
+.tabs-container:nth-child(3) .tab { animation-delay: 0.3s; }
+.tabs-container:nth-child(4) .tab { animation-delay: 0.4s; }
+.tabs-container:nth-child(5) .tab { animation-delay: 0.5s; }
+
+.tab img {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.tab:hover img {
+    transform: scale(1.1);
+}
+
+.tab span {
+    font-size: 0.95em;
+    display: block;
+}
